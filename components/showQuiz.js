@@ -1,5 +1,5 @@
 function showQuiz() {
-    return <p>This is Quiz Page!</p>
+    return <p>This is the Quiz Page!</p>
 }
 
-export default showQuiz;
+export default showQuiz;    
