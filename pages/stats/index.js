@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { Fragment, useState } from "react";
 
-function ShowStats() {
+function ShowStatsPage() {
   return (
     <Fragment>
-        <h1>Stats</h1>
+        <p>showing Stats</p>
     </Fragment>
   );
 }
-
-export default ShowStats;
+//getStaticProps
+export default ShowStatsPage;
