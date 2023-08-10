@@ -1,5 +1,5 @@
-function showHiragana() {
+function ShowHiragana() {
     return <p>This is the showHiragana!</p>
 }
 
-export default showHiragana;    
+export default ShowHiragana;    

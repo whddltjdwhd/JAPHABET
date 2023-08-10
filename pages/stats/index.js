@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { Fragment, useState } from "react";
 
-function Home() {
-
+function ShowStats() {
   return (
     <Fragment>
-        <h1>JAPHABET</h1>
+        <h1>Stats</h1>
     </Fragment>
   );
 }
 
-export default Home;
+export default ShowStats;

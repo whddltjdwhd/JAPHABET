@@ -1,5 +1,5 @@
-function showStats() {
+function ShowStats() {
     return <p>This is the showStats Page.</p>
 }
 
-export default showStats;
+export default ShowStats;
