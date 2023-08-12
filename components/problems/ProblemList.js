@@ -1,24 +1,26 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import Problem from "./Problem";
 
 function ProblemList(props) {
   const data = props.problems;
+  const [currIdx, setCurrIdx] = useState(0);
+
+  const onClickHandler = () => {
+    //검증 필요함.
+    setCurrIdx((idx) => idx + 1);
+  };
+
   return (
     <Fragment>
-      {data.map((itm) => {
-        const nowIdx = data.findIndex(e => e.name === itm.name) + 1;
-        console.log(nowIdx);
-        return (
-          <Problem
-            key={itm.id}
-            id={itm.id}
-            name={itm.name}
-            text={itm.text}
-            nowIdx={nowIdx}
-            totalNum={data.length}
-          />
-        );
-      })}
+      <Problem
+        click={onClickHandler}
+        key={data[currIdx].id}
+        id={data[currIdx].id}
+        name={data[currIdx].name}
+        text={data[currIdx].text}
+        nowIdx={currIdx}
+        totalNum={data.length}
+      />
     </Fragment>
   );
 }

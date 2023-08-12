@@ -12,5 +12,6 @@ function StartPage() {
     </Fragment>
   );
 }
-
+//getStaticProps
+//이곳에서 data fetching 및 검증을 해야함.
 export default StartPage;
