@@ -3,7 +3,7 @@ import Button from "../../UI/Button";
 import Input from "../../UI/Input";
 
 function Problem(props) {
-  console.log(props.text);
+  // console.log(props.text);
   const onClickHandler = () => props.click();
   
   return (
