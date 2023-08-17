@@ -1,21 +1,24 @@
-//showProbelms.
+//start/[id]
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Fragment, useState } from "react";
+import ProblemList from "../../components/problems/ProblemList";
+import Problem from "../../components/problems/Problem";
 
 function ProblemsPage() {
   const router = useRouter();
-  const nowId = router.query.problemId;
+  const data = router.query.problemsData;
+  console.log(data);
   return (
     <Fragment>
-      <h1>Problems : {nowId}</h1>
+      <Problem key={"a1"} text={"ぁ"} nowIdx={0} totalNum={2} />
     </Fragment>
   );
 }
 //getStaticPaths
 export async function getStaticPaths() {
   return {
-    fallback: true,
+    fallback: false,
     paths: [
       {
         params: {
@@ -32,11 +35,14 @@ export async function getStaticPaths() {
 }
 //getStaticProps
 export async function getStaticProps(context) {
-  const some = context.params.problemId;
-  console.log(some);
+  const id = context.params.problemId;
   return {
     props: {
-      problemId: some,
+      problemsData: {
+        problemId: id,
+        text: "ぁ",
+        name: "아",
+      },
     },
   };
 }

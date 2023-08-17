@@ -9,7 +9,7 @@ function Problem(props) {
   return (
     <Fragment>
       <div>
-        <p>{props.nowIdx} / {props.totalNum}</p>
+        <p>{props.nowIdx + 1} / {props.totalNum}</p>
         <h1>{props.text}</h1>
       </div>
       <div>

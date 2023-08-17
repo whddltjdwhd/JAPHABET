@@ -3,6 +3,7 @@ import Problem from "./Problem";
 
 function ProblemList(props) {
   const data = props.problems;
+  // console.log(data[0].id);
   const [currIdx, setCurrIdx] = useState(0);
 
   const onClickHandler = () => {
