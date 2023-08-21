@@ -1,12 +1,13 @@
 import { MongoClient } from "mongodb";
 import { Fragment, useState } from "react";
 import ProblemList from "../../components/problems/ProblemList";
+import App from "../../components/App";
 
 function StartPage(props) {
   const data = props.hiraganas;
   return (
     <Fragment>
-      <ProblemList problems={data} />
+      <App problems={data} />
     </Fragment>
   );
 }
@@ -20,7 +21,7 @@ export async function getStaticProps() {
   const problemsCollection = db.collection("problems");
   const problems = await problemsCollection.find().toArray();
   client.close();
-  
+
   return {
     props: {
       hiraganas: problems.map((itm) => ({
