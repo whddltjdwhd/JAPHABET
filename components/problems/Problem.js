@@ -7,6 +7,7 @@ function Problem(props) {
   const answerRef = useRef();
 
   useEffect(() => {
+    //input 창에 자동 focus 기능
     if (answerRef.current) {
       answerRef.current.focus();
     }
