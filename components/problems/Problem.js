@@ -1,6 +1,4 @@
 import { Fragment, useRef, useState } from "react";
-import Button from "../../UI/Button";
-import Input from "../../UI/Input";
 import { counterActions } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 

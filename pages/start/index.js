@@ -1,10 +1,10 @@
 import { MongoClient } from "mongodb";
 import { Fragment, useState } from "react";
-import ProblemList from "../../components/problems/ProblemList";
 import App from "../../components/App";
 
 function StartPage(props) {
   const data = props.hiraganas;
+
   return (
     <Fragment>
       <App problems={data} />
