@@ -1,12 +1,23 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { counterActions } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 
 function Problem(props) {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter);
   const answerRef = useRef();
-  console.log(counter);
+
+  useEffect(() => {
+    if (answerRef.current) {
+      answerRef.current.focus();
+    }
+  }, []);
+
+  const onKeyDownHandler = (e) => {
+    if (e.key === "Enter") {
+      console.log("onKey");
+      onClickHandler();
+    }
+  };
 
   const onClickHandler = () => {
     // 맞았는지 확인
@@ -20,7 +31,7 @@ function Problem(props) {
         console.log("틀림");
       }
     }
-    
+
     //다음 페이지 넘어가기
     props.click();
   };
@@ -34,7 +45,12 @@ function Problem(props) {
         <h1>{props.text}</h1>
       </div>
       <div>
-        <input id="answer" type="text" ref={answerRef} />
+        <input
+          id="answer"
+          type="text"
+          ref={answerRef}
+          onKeyDown={onKeyDownHandler}
+        />
         <button onClick={onClickHandler}>Submit</button>
       </div>
     </Fragment>
