@@ -2,6 +2,7 @@ import { Provider } from "react-redux";
 import EndPage from "../components/EndPage/Endpage";
 import store from "../store";
 import Link from "next/link";
+import ShowStats from "../components/stats/ShowStats";
 
 //domain/end
 const endPage = () => {
@@ -9,7 +10,7 @@ const endPage = () => {
     <Provider store={store}>
       <EndPage />
       <Link href="/">Regame</Link>
-      {/* <Link href="/new-stats">save the result</Link> */}
+      <ShowStats />
     </Provider>
   );
 };
