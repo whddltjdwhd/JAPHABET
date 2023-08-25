@@ -32,7 +32,7 @@ function ProblemList(props) {
         console.log(data);
       }
 
-      newStats();
+      // newStats();
     }
   }, [isDone]);
 

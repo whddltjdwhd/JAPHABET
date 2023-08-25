@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 
 const Stats = (props) => {
-    return <Fragment>
+    return <li>
         <h1>Stats</h1>
         <p>{props.counter} / {props.totalNum}</p>   
-    </Fragment>
+    </li>
 }
 
 export default Stats;
