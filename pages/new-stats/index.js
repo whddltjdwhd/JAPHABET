@@ -1,4 +1,4 @@
-import NewStats from "../../components/new/NewStats";
+import NewStats from "../../components/stats/NewStats";
 
 function saveNewStatPage() {
 

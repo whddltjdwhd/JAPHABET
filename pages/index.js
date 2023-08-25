@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Fragment, useState } from "react";
+import style from "./index.module.css"
 
 function Home() {
   const Data = [
@@ -7,12 +8,12 @@ function Home() {
     {id: "a2", name: "카", text: "か"},
   ]
   return (
-    <Fragment>
+    <main className={style.main}>
         <h1>JAPHABET</h1>
-        <Link href="/start">Start</Link>
-        <br></br>
-        <Link href="/stats">Stats</Link>
-    </Fragment>
+        <Link href="/start" className={style.start}>Start</Link>
+
+        <Link href="/stats" className={style.stats}>Stats</Link>
+    </main>
   );
 }
 

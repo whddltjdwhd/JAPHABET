@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { counterActions } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
+import Link from "next/link";
 
 function Problem(props) {
   const dispatch = useDispatch();
@@ -53,6 +54,7 @@ function Problem(props) {
           onKeyDown={onKeyDownHandler}
         />
         <button onClick={onClickHandler}>Submit</button>
+        <Link href="/">cancel</Link>
       </div>
     </Fragment>
   );
