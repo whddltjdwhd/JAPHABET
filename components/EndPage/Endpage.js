@@ -7,8 +7,7 @@ function EndPage() {
   const totalNum = useSelector((state) => state.totalNum);
   const start = useSelector((state) => state.startTime);
   const end = useSelector((state) => state.endTime);
-//   console.log(start);
-//   console.log(end);
+
   const time = (end - start).toFixed(3);
   return (
     <Fragment>
