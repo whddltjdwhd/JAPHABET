@@ -1,15 +1,11 @@
 import Stats from "./Stats";
-
-const DUMMY = [
-  { id: "m1", counter: 1, totalNum: 5 },
-  { id: "m2", counter: 2, totalNum: 5 },
-];
+import style from "./showStats.module.css"
 
 const ShowStats = (props) => {
   const data = props.data;
   // console.log(data);
   return (
-    <ul>
+    <ul className={style.list}>
       {data.map((stat) => {
         return (
           <Stats

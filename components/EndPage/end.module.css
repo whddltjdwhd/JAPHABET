@@ -1,0 +1,11 @@
+.score {
+  padding: 10px 25px;
+  margin: 10px auto 10px auto;
+  background-color: rgb(29, 90, 29);
+  color: white;
+  border-radius: 10px;
+}
+.text {
+font-size: 25px;
+  margin: 25px auto 0 auto;
+}

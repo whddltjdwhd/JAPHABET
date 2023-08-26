@@ -2,17 +2,18 @@ import { MongoClient } from "mongodb";
 import Link from "next/link";
 import { Fragment, useState } from "react";
 import ShowStats from "../../components/stats/ShowStats";
-
+import style from "./index.module.css";
 function ShowStatsPage(props) {
   const data = props.stats;
   return (
-    <Fragment>
-        <ShowStats data={data} />
-    </Fragment>
+    <div className={style.container}>
+      <h1 className={style.h1}>SHOW STATS</h1>
+      <ShowStats data={data} />
+      <Link href="/" className={style.home}>HOME</Link>
+    </div>
   );
 }
 export async function getStaticProps() {
-
   const client = await MongoClient.connect(
     "mongodb+srv://rune:naver@rune.lkyzqjn.mongodb.net/?retryWrites=true&w=majority"
   );

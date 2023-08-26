@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    max-height: 100vh;
+    margin: 10% auto;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+}
+
+.linkContainer {
+    margin: 10px auto;
+}
+.home {
+    height: 25px;
+    width: 80px;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    line-height: 22px;
+    margin: 10px 20px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    color: azure;
+    background-color: rgb(52, 188, 206);
+    display: inline-block;
+}
+.home:hover {
+    background-color: rgb(42, 152, 167); 
+    transition: all 0.3s;
+}
+
+.regame {
+    height: 25px;
+    line-height: 22px;
+    width: 80px;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    margin: 10px 20px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    color: azure;
+    background-color: rgb(228, 133, 65);
+    display: inline-block;
+}
+.regame:hover {
+    background-color: rgb(161, 81, 24);
+    transition: all 0.3s;
+}

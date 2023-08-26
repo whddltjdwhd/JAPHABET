@@ -1,0 +1,28 @@
+.container {
+    max-height: 100vh;
+    margin: 15% auto;
+}
+
+.h1 {
+    text-align: center;
+}
+
+.home {
+    height: 25px;
+    margin: 0 auto;
+    width: 80px;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    line-height: 22px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    color: azure;
+    background-color: rgb(52, 188, 206);
+    display: block;
+}
+.home:hover {
+    background-color: rgb(42, 152, 167); 
+    transition: all 0.3s;
+}

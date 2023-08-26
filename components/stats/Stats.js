@@ -1,9 +1,9 @@
 import { Fragment } from "react";
+import style from "./stats.module.css"
 
 const Stats = (props) => {
-    return <li>
-        <h1>Stats</h1>
-        <p>{props.counter} / {props.totalNum}</p>   
+    return <li className={style.item}>
+        <p className={style.result}>{props.counter} / {props.totalNum}</p>   
     </li>
 }
 

@@ -13,11 +13,12 @@
     font-size: 30px;
     padding: 3% 3%;
     margin: 5% 25%;
-    background-color: rgb(26, 85, 8);
+    background-color: rgb(47, 119, 25);
     color: rgb(255, 255, 255);
 }
 .start:hover {
-    background-color: rgb(56, 136, 32);
+    background-color: rgb(26, 85, 8);
+    transition: all 0.3s;
 }
 .stats {
     display: block;
@@ -26,9 +27,10 @@
     font-size: 30px;
     padding: 3% 3%;
     margin: 5% 25%;
-    background-color: rgb(26, 85, 8);
+    background-color: rgb(47, 119, 25);
     color: rgb(255, 255, 255);
 }
 .stats:hover {
-    background-color: rgb(56, 136, 32);
+    background-color: rgb(26, 85, 8);
+    transition: all 0.3s;
 }

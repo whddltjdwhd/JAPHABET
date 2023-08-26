@@ -1,6 +1,6 @@
 .b {
-    height: 100vh;
-    margin: 0;
+    max-height: 100vh;
+    margin: 15% auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,7 +61,8 @@
     background-color: rgb(156, 201, 197);
     border-radius: 10px;
     height: 35px;
-    width: 15%;
+    width: 25%;
+    text-align: center;
 }
 .btn:hover {
     transition: all 0.3s;
