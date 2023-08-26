@@ -5,6 +5,8 @@ import { Fragment } from "react";
 function EndPage() {
     const counter = useSelector((state) => state.counter);
     const totalNum = useSelector((state) => state.totalNum);
+    const start = useSelector((state) => state.startTime);
+    console.log(start)
     return <Fragment>
         <p className={style.text}>RESULT</p>
         <h1 className={style.score}>{`${counter} / ${totalNum}`}</h1>
