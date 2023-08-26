@@ -1,11 +1,31 @@
-.score {
+.container {
+  width: 300px;
   padding: 10px 25px;
   margin: 10px auto 10px auto;
   background-color: rgb(29, 90, 29);
   color: white;
   border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: center;
+}
+.time_container {
+  width: 20%;
+  text-align: center;
+}
+.seconds {
+  margin: 10px auto;
+}
+.time {
+  margin: 5px auto;
+  display: inline-block;
+}
+.score {
+  display: inline-block;
 }
 .text {
 font-size: 25px;
   margin: 25px auto 0 auto;
 }
+

@@ -7,6 +7,7 @@ import { counterActions } from "../../store";
 function ProblemList(props) {
   const data = props.problems;
   const router = useRouter();
+  const dispatch = useDispatch();
   const [isDone, setIsDone] = useState(false);
   const [currIdx, setCurrIdx] = useState(0);
 
@@ -15,24 +16,31 @@ function ProblemList(props) {
     totalNum: data.length,
   };
   
-  const dispatch = useDispatch();
-  dispatch(counterActions.setTotalNum(data.length));
-
   useEffect(() => {
-    if (isDone) {
-      async function newStats() {
-        const response = await fetch("/api/new-stats", {
-          method: "POST",
-          body: JSON.stringify(finishedData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await response.json();
-        console.log(data);
-      }
+    async function newStats() {
+      const response = await fetch("/api/new-stats", {
+        method: "POST",
+        body: JSON.stringify(finishedData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const resData = await response.json();
+      console.log(resData);
+    }
 
+    if (isDone) {
+      const currentDatetime = new Date();
+      const hours = currentDatetime.getHours();
+      const minutes = currentDatetime.getMinutes();
+      const seconds = currentDatetime.getSeconds();
+    
+      const endTime = hours * 3600 + minutes * 60 + seconds;
+      dispatch(counterActions.setEndTime(endTime));
+      dispatch(counterActions.setTotalNum(data.length));
+      
       // newStats();
+      router.push("/end");
     }
   }, [isDone]);
 
@@ -41,12 +49,7 @@ function ProblemList(props) {
     if (currIdx < data.length - 1) {
       setCurrIdx((idx) => idx + 1);
     } else {
-      //문제 완료
-      //새로운 stat 데이터 베이스에 등록
       setIsDone(true);
-
-      //endPage로 이동
-      router.push("/end");
     }
   };
 

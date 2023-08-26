@@ -3,13 +3,17 @@
     border: 2px solid white;
     height: 50px;
     width: 175px;
+    background-color: rgb(245, 243, 243);
     text-align: center;
     list-style: none;
     border-radius: 10px;
 }
+.item:hover {
+    background-color: rgb(151, 151, 151);
+    transition: all 0.3s;
+}
 
 .result {
-    
     margin: 10px auto;
     width: 100px;
     display: block;
