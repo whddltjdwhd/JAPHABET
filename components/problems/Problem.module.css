@@ -1,0 +1,75 @@
+.b {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+}
+.box {
+    width: 35%;
+    border-radius: 15px;
+    margin: 0 auto;
+    background-color: rgb(67, 122, 85);
+    padding: 25px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+.page {
+    color: white;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.text {
+    display: block;
+    border-radius: 15px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(28, 94, 26);
+    margin: 10px auto;
+    width: 25%;
+    font-size: 40px;
+}
+.input {
+    text-decoration: none;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10px;
+    margin: 15px auto;
+    font-size: 30px;
+    height: 45px;
+    width: 25%;
+    background:rgb(214, 240, 214);
+}
+.input:focus {
+    outline: 0;
+    background:rgb(204, 230, 180);
+} 
+.btn {
+    text-transform: uppercase;
+    margin: 15px auto;
+    border: none;
+    color: rgb(19, 58, 32);
+    font-size: 15px;
+    font-weight: 600;
+    background-color: rgb(156, 201, 197);
+    border-radius: 10px;
+    height: 35px;
+    width: 15%;
+}
+.btn:hover {
+    transition: all 0.3s;
+    text-transform: uppercase;
+    background-color: rgb(137, 177, 174);
+}
+
+.cancel {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}

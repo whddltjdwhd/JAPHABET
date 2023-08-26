@@ -50,7 +50,6 @@ function ProblemList(props) {
     }
   };
 
-
   return (
     <Fragment>
       <Problem

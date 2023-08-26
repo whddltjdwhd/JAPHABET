@@ -2,6 +2,7 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { counterActions } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
+import style from "./Problem.module.css";
 
 function Problem(props) {
   const dispatch = useDispatch();
@@ -39,24 +40,28 @@ function Problem(props) {
   };
 
   return (
-    <Fragment>
-      <div>
-        <p>
-          {props.nowIdx + 1} / {props.totalNum}
-        </p>
-        <h1>{props.text}</h1>
-      </div>
-      <div>
+    <div className={style.b}>
+      <div className={style.box}>
+        <div>
+          <p className={style.page}>
+            {props.nowIdx + 1} / {props.totalNum}
+          </p>
+          <p className={style.text}>{props.text}</p>
+        </div>
+
         <input
           id="answer"
           type="text"
           ref={answerRef}
           onKeyDown={onKeyDownHandler}
+          className={style.input}
         />
-        <button onClick={onClickHandler}>Submit</button>
-        <Link href="/">cancel</Link>
+        <button onClick={onClickHandler} className={style.btn}>
+          Submit
+        </button>
+        <Link href="/" className={style.cancel}>cancel</Link>
       </div>
-    </Fragment>
+    </div>
   );
 }
 

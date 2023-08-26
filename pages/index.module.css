@@ -1,6 +1,7 @@
 .main {
     max-height: 100vh;
-    margin: 25% auto;
+    width: 50%;
+    margin: 10% auto;
     text-align: center;
     background-color: rgb(255, 255, 255);
 }
@@ -8,18 +9,26 @@
 .start {
     display: block;
     text-decoration: none;
+    border-radius: 10px;
     font-size: 30px;
     padding: 3% 3%;
     margin: 5% 25%;
     background-color: rgb(26, 85, 8);
     color: rgb(255, 255, 255);
 }
+.start:hover {
+    background-color: rgb(56, 136, 32);
+}
 .stats {
     display: block;
     text-decoration: none;
+    border-radius: 10px;
     font-size: 30px;
     padding: 3% 3%;
     margin: 5% 25%;
     background-color: rgb(26, 85, 8);
     color: rgb(255, 255, 255);
+}
+.stats:hover {
+    background-color: rgb(56, 136, 32);
 }
