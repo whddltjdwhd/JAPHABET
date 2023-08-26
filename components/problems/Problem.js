@@ -39,6 +39,9 @@ function Problem(props) {
     props.click();
   };
 
+  const onClickCancelHandler = () => {
+    dispatch(counterActions.setCounter(0));
+  }
   return (
     <div className={style.b}>
       <div className={style.box}>
@@ -59,7 +62,7 @@ function Problem(props) {
         <button onClick={onClickHandler} className={style.btn}>
           Submit
         </button>
-        <Link href="/" className={style.cancel}>cancel</Link>
+        <Link href="/" className={style.cancel} onClick={onClickCancelHandler}>cancel</Link>
       </div>
     </div>
   );

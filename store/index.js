@@ -10,6 +10,9 @@ const counterSlice = createSlice({
     increament(state) {
         state.counter++;
     },
+    setCounter(state, action) {
+      state.counter = action.payload;
+    },
     setTotalNum(state, action) {
         state.totalNum = action.payload;
     },
