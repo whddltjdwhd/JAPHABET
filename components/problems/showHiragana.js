@@ -9,8 +9,10 @@ function ShowHiragana(props) {
   const hours = currentDatetime.getHours();
   const minutes = currentDatetime.getMinutes();
   const seconds = currentDatetime.getSeconds();
+  const ms = currentDatetime.getMilliseconds();
+ 
 
-  const startTime = hours * 3600 + minutes * 60 + seconds;
+  const startTime = hours * 3600 + minutes * 60 + seconds + ms / 1000;
   dispatch(counterActions.setStartTime(startTime));
   
   const onClickHandler = () => {
@@ -18,7 +20,7 @@ function ShowHiragana(props) {
   };
   return (
     <div>
-      <button onClick={onClickHandler}>go</button>
+      {!isStart && <button onClick={onClickHandler}>go</button>}
       {isStart && <ProblemList problems={props.problems} />}
     </div>
   );

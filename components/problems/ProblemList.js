@@ -34,8 +34,9 @@ function ProblemList(props) {
       const hours = currentDatetime.getHours();
       const minutes = currentDatetime.getMinutes();
       const seconds = currentDatetime.getSeconds();
+      const ms = currentDatetime.getMilliseconds();
     
-      const endTime = hours * 3600 + minutes * 60 + seconds;
+      const endTime = hours * 3600 + minutes * 60 + seconds + ms / 1000;
       dispatch(counterActions.setEndTime(endTime));
       dispatch(counterActions.setTotalNum(data.length));
       

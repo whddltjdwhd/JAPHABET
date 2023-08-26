@@ -25,7 +25,8 @@
   display: inline-block;
 }
 .text {
-font-size: 25px;
+  font-size: 25px;
+  font-weight: 700;
   margin: 25px auto 0 auto;
 }
 
