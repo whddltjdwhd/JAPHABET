@@ -1,7 +1,7 @@
 import { configureStore, createSlice} from "@reduxjs/toolkit";
 
 //redux
-const initialState = { counter: 0 , totalNum: 0};
+const initialState = { counter: 0 , totalNum: 0, startTime: 0, endTime: 0};
 
 const counterSlice = createSlice({
   name: "counter",
@@ -12,6 +12,12 @@ const counterSlice = createSlice({
     },
     setTotalNum(state, action) {
         state.totalNum = action.payload;
+    },
+    setStartTime(state, action) {
+      state.startTime = action.payload;
+    },
+    setEndTime(state, action) {
+      state.endTime = action.payload;
     }
   }
 });

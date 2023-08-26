@@ -14,9 +14,7 @@ function StartPage(props) {
 //getStaticProps
 export async function getStaticProps() {
   //이곳에서 data fetching 및 검증을 해야함.
-  const client = await MongoClient.connect(
-    "mongodb+srv://rune:naver@rune.lkyzqjn.mongodb.net/?retryWrites=true&w=majority"
-  );
+  const client = await MongoClient.connect(process.env.url);
   const db = client.db("problems");
   const problemsCollection = db.collection("problems");
   const problems = await problemsCollection.find().toArray();

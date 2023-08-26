@@ -1,0 +1,9 @@
+.list {
+    background-color: rgb(211, 210, 210);
+    margin: 15px auto;
+    height: 250px;
+    width: 300px;
+    padding: 0 0;
+    overflow: auto;
+    border-radius: 10px;
+}

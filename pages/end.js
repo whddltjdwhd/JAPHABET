@@ -4,6 +4,7 @@ import store from "../store";
 import Link from "next/link";
 import ShowStats from "../components/stats/ShowStats";
 import { MongoClient } from "mongodb";
+import style from "./end.module.css";
 
 //domain/end
 const endPage = (props) => {
@@ -11,10 +12,18 @@ const endPage = (props) => {
   // console.log(statsData);
   return (
     <Provider store={store}>
-      <EndPage />
-      <Link href="/">home</Link>
-      <Link href="/start">regame</Link>
-      <ShowStats data={statsData}/>
+      <div className={style.container}>
+        <EndPage />
+        <ShowStats data={statsData} />
+        <div className={style.linkContainer}>
+          <Link href="/" className={style.home}>
+            home
+          </Link>
+          <Link href="/start" className={style.regame}>
+            regame
+          </Link>
+        </div>
+      </div>
     </Provider>
   );
 };
