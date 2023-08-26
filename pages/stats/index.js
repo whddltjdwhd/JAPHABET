@@ -9,14 +9,14 @@ function ShowStatsPage(props) {
     <div className={style.container}>
       <h1 className={style.h1}>SHOW STATS</h1>
       <ShowStats data={data} />
-      <Link href="/" className={style.home}>HOME</Link>
+      <Link href="/" className={style.home}>
+        HOME
+      </Link>
     </div>
   );
 }
 export async function getStaticProps() {
-  const client = await MongoClient.connect(
-    "mongodb+srv://rune:naver@rune.lkyzqjn.mongodb.net/?retryWrites=true&w=majority"
-  );
+  const client = await MongoClient.connect(process.env.url);
   const db = client.db("stats");
   const statsCollection = db.collection("stats");
   const stats = await statsCollection.find().toArray();
