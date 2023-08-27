@@ -11,13 +11,12 @@ function ProblemList(props) {
   const [isDone, setIsDone] = useState(false);
   const [currIdx, setCurrIdx] = useState(0);
 
-  const finishedData = {
-    counter: useSelector((state) => state.counter),
-    totalNum: data.length,
-  };
-  
+  const counter = useSelector((state) => state.counter);
+  const startTime = useSelector((state) => state.startTime);
+  const totalNum = data.length;
+
   useEffect(() => {
-    async function newStats() {
+    async function newStats(finishedData) {
       const response = await fetch("/api/new-stats", {
         method: "POST",
         body: JSON.stringify(finishedData),
@@ -35,12 +34,20 @@ function ProblemList(props) {
       const minutes = currentDatetime.getMinutes();
       const seconds = currentDatetime.getSeconds();
       const ms = currentDatetime.getMilliseconds();
-    
+
       const endTime = hours * 3600 + minutes * 60 + seconds + ms / 1000;
+
+      const time = (endTime - startTime).toFixed(3);
       dispatch(counterActions.setEndTime(endTime));
-      dispatch(counterActions.setTotalNum(data.length));
-      
-      // newStats();
+      dispatch(counterActions.setTotalNum(totalNum));
+
+      const finishedData = {
+        counter: counter,
+        totalNum: totalNum,
+        time: time
+      };  
+
+      // newStats(finishedData);
       router.push("/end");
     }
   }, [isDone]);
