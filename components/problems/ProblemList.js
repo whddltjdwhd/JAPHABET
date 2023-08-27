@@ -12,23 +12,23 @@ function ProblemList(props) {
   const [currIdx, setCurrIdx] = useState(0);
 
   const counter = useSelector((state) => state.counter);
-  const startTime = useSelector((state) => state.startTime);
+  const startTime = useSelector((state) => state.startTime); 
   const totalNum = data.length;
 
   useEffect(() => {
-    async function newStats(finishedData) {
-      const response = await fetch("/api/new-stats", {
-        method: "POST",
-        body: JSON.stringify(finishedData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const resData = await response.json();
-      console.log(resData);
-    }
-
     if (isDone) {
+      async function newStats(finishedData) {
+        const response = await fetch("/api/new-stats", {
+          method: "POST",
+          body: JSON.stringify(finishedData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const resData = await response.json();
+        console.log(resData);
+      }
+
       const currentDatetime = new Date();
       const hours = currentDatetime.getHours();
       const minutes = currentDatetime.getMinutes();
@@ -44,8 +44,8 @@ function ProblemList(props) {
       const finishedData = {
         counter: counter,
         totalNum: totalNum,
-        time: time
-      };  
+        time: time,
+      };
 
       // newStats(finishedData);
       router.push("/end");
@@ -62,17 +62,15 @@ function ProblemList(props) {
   };
 
   return (
-    <Fragment>
-      <Problem
-        click={onClickHandler}
-        key={data[currIdx].id}
-        id={data[currIdx].id}
-        name={data[currIdx].name}
-        text={data[currIdx].text}
-        nowIdx={currIdx}
-        totalNum={data.length}
-      />
-    </Fragment>
+    <Problem
+      click={onClickHandler}
+      key={data[currIdx].id}
+      id={data[currIdx].id}
+      name={data[currIdx].name}
+      text={data[currIdx].text}
+      nowIdx={currIdx}
+      totalNum={data.length}
+    />
   );
 }
 
