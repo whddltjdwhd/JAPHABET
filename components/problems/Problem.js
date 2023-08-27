@@ -29,7 +29,7 @@ function Problem(props) {
     if (answer.trim().length > 0) {
       if (props.name == answer) {
         console.log(`${answer} : ${props.name} => 동일`);
-        dispatch(counterActions.increament());
+        dispatch(counterActions.increment());
       } else {
         console.log("틀림");
       }

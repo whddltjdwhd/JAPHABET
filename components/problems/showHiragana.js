@@ -21,6 +21,7 @@ function ShowHiragana(props) {
 
       const startTime = hours * 3600 + minutes * 60 + seconds + ms / 1000;
       dispatch(counterActions.setStartTime(startTime));
+      dispatch(counterActions.setCounter(0));
     }
   }, [isStart]);
 
