@@ -11,8 +11,8 @@ function ProblemList(props) {
   const [isDone, setIsDone] = useState(false);
   const [currIdx, setCurrIdx] = useState(0);
 
-  const counter = useSelector((state) => state.counter);
-  const startTime = useSelector((state) => state.startTime);
+  const counter = useSelector((state) => state.counter.counter);
+  const startTime = useSelector((state) => state.counter.startTime);
   const totalNum = data.length;
 
   useEffect(() => {

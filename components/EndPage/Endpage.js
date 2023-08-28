@@ -4,13 +4,13 @@ import { Fragment, useEffect, useState } from "react";
 import { counterActions } from "../../store";
 
 function EndPage() {
-  const counter = useSelector((state) => state.counter);
-  const totalNum = useSelector((state) => state.totalNum);
+  const counter = useSelector((state) => state.counter.counter);
+  const totalNum = useSelector((state) => state.counter.totalNum);
 
   const dispatch = useDispatch();
   dispatch(counterActions.setTotalTime());
 
-  const totalTime = useSelector((state) => state.totalTime);
+  const totalTime = useSelector((state) => state.counter.totalTime);
 
   return (
     <Fragment>

@@ -1,11 +1,14 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 //redux
-const initialState = { counter: 0, totalNum: 0, startTime: 0, endTime: 0, totalTime: 0 };
+const initialCounter = { counter: 0, totalNum: 0, startTime: 0, endTime: 0, totalTime: 0 };
+const initialHiragana = {
+  hiraganas: []
+}
 
 const counterSlice = createSlice({
   name: "counter",
-  initialState,
+  initialState: initialCounter,
   reducers: {
     increment(state) {
       state.counter++;
@@ -32,10 +35,20 @@ const counterSlice = createSlice({
   },
 });
 
+const hiraganaSlice = createSlice({
+  name: "hiragana",
+  initialState: initialHiragana,
+  reducers: {
+    setHiraganas(state, action) {
+      state.hiraganas = action.payload;
+    }
+  }
+})
+
 const store = configureStore({
-  reducer: counterSlice.reducer,
+  reducer: { counter: counterSlice.reducer, hiragana: hiraganaSlice.reducer }
 });
 
 export const counterActions = counterSlice.actions;
-
+export const hiraganaActions = hiraganaSlice.actions;
 export default store;
