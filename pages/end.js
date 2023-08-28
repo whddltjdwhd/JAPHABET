@@ -33,7 +33,7 @@ const endPage = (props) => {
 export async function getStaticProps() {
   // MongoClient
   const client = await MongoClient.connect(
-    "mongodb+srv://rune:naver@rune.lkyzqjn.mongodb.net/?retryWrites=true&w=majority"
+    process.env.url
   );
   const db = client.db("stats");
   const statsCollection = db.collection("stats");
@@ -47,6 +47,7 @@ export async function getStaticProps() {
         id: stat._id.toString(),
         counter: stat.counter,
         totalNum: stat.totalNum,
+        time: stat.time
       })),
     },
   };
