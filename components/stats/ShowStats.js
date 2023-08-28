@@ -12,6 +12,7 @@ const ShowStats = (props) => {
             key={stat.id}
             counter={stat.counter}
             totalNum={stat.totalNum}
+            time={stat.time}
           />
         );
       })}

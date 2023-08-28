@@ -29,6 +29,7 @@ export async function getStaticProps() {
         id: stat._id.toString(),
         counter: stat.counter,
         totalNum: stat.totalNum,
+        time: stat.time
       })),
     },
   };
