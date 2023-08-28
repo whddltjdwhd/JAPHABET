@@ -40,7 +40,11 @@ const hiraganaSlice = createSlice({
   initialState: initialHiragana,
   reducers: {
     setHiraganas(state, action) {
-      state.hiraganas = action.payload;
+      // console.log(state);
+      return {
+        ...state,
+        hiraganas: [...state.hiraganas, action.payload]
+      };
     }
   }
 })
