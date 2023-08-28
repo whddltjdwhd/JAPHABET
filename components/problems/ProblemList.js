@@ -12,7 +12,7 @@ function ProblemList(props) {
   const [currIdx, setCurrIdx] = useState(0);
 
   const counter = useSelector((state) => state.counter);
-  const startTime = useSelector((state) => state.startTime); 
+  const startTime = useSelector((state) => state.startTime);
   const totalNum = data.length;
 
   useEffect(() => {
@@ -46,8 +46,8 @@ function ProblemList(props) {
         totalNum: totalNum,
         time: time,
       };
+      // if (finishedData.counter != 0 && finishedData.totalNum != 0) newStats(finishedData);
 
-      // newStats(finishedData);
       router.push("/end");
     }
   }, [isDone]);

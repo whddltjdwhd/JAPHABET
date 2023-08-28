@@ -6,12 +6,12 @@ import { counterActions } from "../../store";
 function EndPage() {
   const counter = useSelector((state) => state.counter);
   const totalNum = useSelector((state) => state.totalNum);
-  // const start = useSelector((state) => state.startTime);
-  // const end = useSelector((state) => state.endTime);
+
   const dispatch = useDispatch();
   dispatch(counterActions.setTotalTime());
+
   const totalTime = useSelector((state) => state.totalTime);
-  // const time = (end - start).toFixed(3);
+
   return (
     <Fragment>
       <p className={style.text}>RESULT</p>
