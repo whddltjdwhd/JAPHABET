@@ -55,7 +55,7 @@ function ProblemList(props) {
   const onClickHandler = () => {
     //검증
     if (currIdx < data.length - 1) {
-      setCurrIdx((idx) => idx + 1);
+      setCurrIdx(currIdx + 1);
     } else {
       setIsDone(true);
     }

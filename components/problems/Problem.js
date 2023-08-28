@@ -13,35 +13,30 @@ function Problem(props) {
     if (answerRef.current) {
       answerRef.current.focus();
     }
-  }, []);
+  }, [answerRef]);
+
+  const checkAnswerHandler = () => {
+    const answer = answerRef.current.value.trim();
+
+    if (answer.length > 0 && props.name == answer) {
+      dispatch(counterActions.increment());
+    }
+
+    props.click();
+  }
 
   const onKeyDownHandler = (e) => {
+    if (e.isComposing || e.keyCode === 229) return;
     if (e.key === "Enter") {
-      console.log("onKey");
-      onClickHandler();
+      checkAnswerHandler();
     }
   };
 
   const onClickHandler = () => {
-    // 맞았는지 확인
-    const answer = answerRef.current.value;
-
-    if (answer.trim().length > 0) {
-      if (props.name == answer) {
-        console.log(`${answer} : ${props.name} => 동일`);
-        dispatch(counterActions.increment());
-      } else {
-        console.log("틀림");
-      }
-    }
-
-    //다음 페이지 넘어가기
-    props.click();
+    checkAnswerHandler();
   };
 
-  const onClickCancelHandler = () => {
-    dispatch(counterActions.setCounter(0));
-  }
+
   return (
     <div className={style.b}>
       <div className={style.box}>
@@ -62,7 +57,7 @@ function Problem(props) {
         <button onClick={onClickHandler} className={style.btn}>
           Submit
         </button>
-        <Link href="/" className={style.cancel} onClick={onClickCancelHandler}>cancel</Link>
+        <Link href="/" className={style.cancel}>cancel</Link>
       </div>
     </div>
   );
