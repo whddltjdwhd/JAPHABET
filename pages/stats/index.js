@@ -32,6 +32,7 @@ export async function getStaticProps() {
         time: stat.time
       })),
     },
+    revalidate: 10
   };
 }
 export default ShowStatsPage;
