@@ -1,33 +1,37 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Problem from "./Problem";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { counterActions } from "../../store";
 
 function ProblemList(props) {
-  const data = props.problems;
+  const problemsData = props.problems;
   const router = useRouter();
   const dispatch = useDispatch();
-  const [isDone, setIsDone] = useState(false);
-  const [currIdx, setCurrIdx] = useState(0);
+  const [isAllProblemsCompleted, setIsAllProblemsCompleted] = useState(false);
+  const [currentProblemIndex, setCurrentProblemIndex] = useState(0);
 
   const counter = useSelector((state) => state.counter);
   const startTime = useSelector((state) => state.startTime);
-  const totalNum = data.length;
+  const totalNum = problemsData.length;
 
   useEffect(() => {
-    if (isDone) {
-      async function newStats(finishedData) {
-        const response = await fetch("/api/new-stats", {
-          method: "POST",
-          body: JSON.stringify(finishedData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const resData = await response.json();
-        console.log(resData);
-      }
+    if (isAllProblemsCompleted) {
+      const newStats = async (finishedData) => {
+        try {
+          const response = await fetch("/api/new-stats", {
+            method: "POST",
+            body: JSON.stringify(finishedData),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          const resData = await response.json();
+          console.log(resData);
+        } catch (error) {
+          console.error("데이터를 보내는 와중에 ERROR가 발생했습니다:", error);
+        }
+      };
 
       const currentDatetime = new Date();
       const hours = currentDatetime.getHours();
@@ -42,34 +46,38 @@ function ProblemList(props) {
       dispatch(counterActions.setTotalNum(totalNum));
 
       const finishedData = {
-        counter: counter,
-        totalNum: totalNum,
-        time: time,
+        counter,
+        totalNum,
+        time,
       };
-      if (finishedData.counter != 0 && finishedData.totalNum != 0) newStats(finishedData);
+
+      if (finishedData.counter !== 0 && finishedData.totalNum !== 0) {
+        newStats(finishedData);
+      }
 
       router.push("/end");
     }
-  }, [isDone]);
+  }, [isAllProblemsCompleted]);
 
   const onClickHandler = () => {
-    //검증
-    if (currIdx < data.length - 1) {
-      setCurrIdx(currIdx + 1);
+    if (currentProblemIndex < problemsData.length - 1) {
+      setCurrentProblemIndex(currentProblemIndex + 1);
     } else {
-      setIsDone(true);
+      setIsAllProblemsCompleted(true);
     }
   };
+
+  const currentProblem = problemsData[currentProblemIndex];
 
   return (
     <Problem
       click={onClickHandler}
-      key={data[currIdx].id}
-      id={data[currIdx].id}
-      name={data[currIdx].name}
-      text={data[currIdx].text}
-      nowIdx={currIdx}
-      totalNum={data.length}
+      key={currentProblem.id}
+      id={currentProblem.id}
+      name={currentProblem.name}
+      text={currentProblem.text}
+      nowIdx={currentProblemIndex}
+      totalNum={problemsData.length}
     />
   );
 }
