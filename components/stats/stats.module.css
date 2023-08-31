@@ -1,20 +1,49 @@
 .item {
     margin: 5px auto;
     border: 2px solid white;
-    height: 50px;
-    width: 270px;
+    height: 80px;
+    width: 370px;
     background-color: rgb(245, 243, 243);
     text-align: center;
     list-style: none;
     border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: center;
 }
+
 .item:hover {
     background-color: rgb(151, 151, 151);
     transition: all 0.3s;
 }
 
+.time_container {
+    text-align: center;
+    margin: auto 20px;
+    width: 70px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+}
+
+.time_text {
+    margin: 5px auto;
+}
+
+.time {
+    margin: 5px auto;
+}
+
 .result {
-    margin: 10px auto;
+    font-size: 30px;
+    font-weight: 400;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    margin: auto 0;
     width: 100px;
     display: block;
     text-align: center;
