@@ -46,7 +46,7 @@ function ProblemList(props) {
         totalNum: totalNum,
         time: time,
       };
-      // if (finishedData.counter != 0 && finishedData.totalNum != 0) newStats(finishedData);
+      if (finishedData.counter != 0 && finishedData.totalNum != 0) newStats(finishedData);
 
       router.push("/end");
     }
