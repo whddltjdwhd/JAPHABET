@@ -3,7 +3,7 @@ const nextConfig = {
     reactStrictMode: false,
     headers: async () => [
       {
-        source: '/:all*(svg|jpg|png)',
+        source: '/stats',
         locale: false,
         headers: [
           {
