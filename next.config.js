@@ -5,8 +5,12 @@ module.exports = {
         source: "/(.*)",
         headers: [
           {
+            key: "Access-Control-Allow-Origin",
+            value: "*",
+          },
+          {
             key: "Cache-Control",
-            value: "no-cache, no-store, must-revalidate",
+            value: "no-store"
           },
         ],
       },
