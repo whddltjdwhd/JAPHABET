@@ -15,7 +15,7 @@ function ShowStatsPage(props) {
     </div>
   );
 }
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const client = await MongoClient.connect(process.env.url);
   const db = client.db("stats");
   const statsCollection = db.collection("stats");

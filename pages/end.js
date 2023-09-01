@@ -30,7 +30,7 @@ const endPage = (props) => {
 
 //여기서 문제 결과들 보여주기.
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // MongoClient
   const client = await MongoClient.connect(
     process.env.url
