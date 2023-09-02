@@ -18,7 +18,7 @@ function Problem(props) {
   const checkAnswerHandler = () => {
     const answer = answerRef.current.value.trim();
 
-    if (answer.length > 0 && props.name == answer && props.isDone) {
+    if (answer.length > 0 && props.name == answer) {
       dispatch(counterActions.increment());
     }
 
