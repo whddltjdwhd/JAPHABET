@@ -51,7 +51,7 @@ function ProblemList(props) {
         time,
       };
 
-      if (finishedData.counter !== 0 && finishedData.totalNum !== 0) {
+      if (finishedData.totalNum !== 0) {
         newStats(finishedData);
       }
 
@@ -78,6 +78,7 @@ function ProblemList(props) {
       text={currentProblem.text}
       nowIdx={currentProblemIndex}
       totalNum={problemsData.length}
+      isDone={isAllProblemsCompleted}
     />
   );
 }
