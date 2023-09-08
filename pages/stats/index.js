@@ -34,9 +34,9 @@ function ShowStatsPage() {
     <div className={style.container}>
       <h1 className={style.h1}>SHOW STATS</h1>
       {loading ? (
-        <p>로딩 중...</p>
+        <p className={style.loading}>로딩 중...</p>
       ) : error ? (
-        <p>오류: {error.message}</p>
+        <p className={style.error}>오류: {error.message}</p>
       ) : (
         <ShowStats data={data} />
       )}
