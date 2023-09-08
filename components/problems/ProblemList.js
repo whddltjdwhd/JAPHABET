@@ -11,7 +11,7 @@ function ProblemList(props) {
   const [isAllProblemsCompleted, setIsAllProblemsCompleted] = useState(false);
   const [currentProblemIndex, setCurrentProblemIndex] = useState(0);
 
-  const counter = useSelector((state) => state.counter);
+  let counter = useSelector((state) => state.counter);
   const startTime = useSelector((state) => state.startTime);
   const totalNum = problemsData.length;
 
@@ -45,13 +45,14 @@ function ProblemList(props) {
       dispatch(counterActions.setEndTime(endTime));
       dispatch(counterActions.setTotalNum(totalNum));
 
+      if(counter > totalNum) counter = totalNum;
       const finishedData = {
         counter,
         totalNum,
         time,
       };
 
-      if (finishedData.counter !== 0 && finishedData.totalNum !== 0) {
+      if (finishedData.totalNum !== 0) {
         newStats(finishedData);
       }
 
@@ -78,6 +79,7 @@ function ProblemList(props) {
       text={currentProblem.text}
       nowIdx={currentProblemIndex}
       totalNum={problemsData.length}
+      isDone={isAllProblemsCompleted}
     />
   );
 }

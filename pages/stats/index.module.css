@@ -9,7 +9,7 @@
 
 .home {
     height: 25px;
-    margin: 0 auto;
+    margin: 10px 20px;
     width: 80px;
     font-weight: 400;
     font-size: 20px;
@@ -25,4 +25,50 @@
 .home:hover {
     background-color: rgb(42, 152, 167); 
     transition: all 0.3s;
+}
+
+.delete {
+    height: 25px;
+    margin: 10px 20px;
+    width: 150px;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    line-height: 22px;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 10px;
+    color: azure;
+    background-color: rgb(209, 68, 43);
+    display: block;
+}
+.delete:hover {
+    background-color: rgb(165, 55, 35);
+    transition: all 0.3s;
+}
+.wrap {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: row;
+}
+
+.loading {
+    height: 350px;
+    width: 400px;
+    line-height: 350px;
+    font-size: 40px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.error {
+    height: 350px;
+    width: 400px;
+    line-height: 350px;
+    font-size: 40px;
+    color: rgb(247, 59, 59);
+    display: block;
+    margin: 0 auto;
+    text-align: center;
 }

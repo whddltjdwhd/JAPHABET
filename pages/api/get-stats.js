@@ -1,3 +1,4 @@
+
 export default async function handler(req, res) {
     // Check for secret to confirm this is a valid request
     if (req.method !== "GET") {
@@ -15,3 +16,7 @@ export default async function handler(req, res) {
       return res.status(500).send('Error revalidating')
     }
   }
+
+
+export default handler;
+
