@@ -52,3 +52,23 @@
     justify-items: center;
     flex-direction: row;
 }
+
+.loading {
+    height: 350px;
+    width: 400px;
+    line-height: 350px;
+    font-size: 40px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.error {
+    height: 350px;
+    width: 400px;
+    line-height: 350px;
+    font-size: 40px;
+    color: rgb(247, 59, 59);
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
