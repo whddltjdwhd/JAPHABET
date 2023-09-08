@@ -1,40 +1,55 @@
-import { MongoClient } from "mongodb";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Fragment, useState } from "react";
 import ShowStats from "../../components/stats/ShowStats";
 import style from "./index.module.css";
-function ShowStatsPage(props) {
-  const data = props.stats;
+
+function ShowStatsPage() {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const getStats = async () => {
+      try {
+        const response = await fetch("/api/get-stats", {
+          method: "GET",
+        });
+        if (!response.ok) {
+          throw new Error("데이터 가져오기 실패");
+        }
+        const resData = await response.json();
+        console.log(resData);
+        setData(resData);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+
+    getStats();
+  }, []);
+
   return (
     <div className={style.container}>
       <h1 className={style.h1}>SHOW STATS</h1>
-      <ShowStats data={data} />
+      {loading ? (
+        <p>로딩 중...</p>
+      ) : error ? (
+        <p>오류: {error.message}</p>
+      ) : (
+        <ShowStats data={data} />
+      )}
       <div className={style.wrap}>
         <Link href="/" className={style.home}>
-          HOME
+          Home
         </Link>
-        <Link href="/delete" className={style.delete}>DELETE ALL</Link>
+        <Link href="/delete" className={style.delete}>
+          Delete All
+        </Link>
       </div>
     </div>
   );
 }
-export async function getServerSideProps() {
-  const client = await MongoClient.connect(process.env.url);
-  const db = client.db("stats");
-  const statsCollection = db.collection("stats");
-  const stats = await statsCollection.find().toArray();
 
-  client.close();
-
-  return {
-    props: {
-      stats: stats.map((stat) => ({
-        id: stat._id.toString(),
-        counter: stat.counter,
-        totalNum: stat.totalNum,
-        time: stat.time,
-      })),
-    },
-  };
-}
 export default ShowStatsPage;
