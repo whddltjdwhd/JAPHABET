@@ -9,9 +9,12 @@ function ShowStatsPage(props) {
     <div className={style.container}>
       <h1 className={style.h1}>SHOW STATS</h1>
       <ShowStats data={data} />
-      <Link href="/" className={style.home}>
-        HOME
-      </Link>
+      <div className={style.wrap}>
+        <Link href="/" className={style.home}>
+          HOME
+        </Link>
+        <Link href="/delete" className={style.delete}>DELETE ALL</Link>
+      </div>
     </div>
   );
 }
@@ -29,7 +32,7 @@ export async function getServerSideProps() {
         id: stat._id.toString(),
         counter: stat.counter,
         totalNum: stat.totalNum,
-        time: stat.time
+        time: stat.time,
       })),
     },
   };
