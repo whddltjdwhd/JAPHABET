@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Fragment, useState } from "react";
 import ShowStats from "../../components/stats/ShowStats";
 import style from "./index.module.css";
+
 function ShowStatsPage(props) {
   const data = props.stats;
   return (

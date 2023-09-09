@@ -2,9 +2,13 @@ import Link from "next/link";
 import { Fragment, useState } from "react";
 import style from "./index.module.css";
 import { useRouter } from "next/router";
-
+import getStats from "../components/getStats.js";
 function Home() {
-
+  const route = useRouter();
+  const onclickHandler = () => {
+    getStats();
+    route.push("/stats");
+  }
   return (
 
       <main className={style.main}>
@@ -13,9 +17,9 @@ function Home() {
           Start
         </Link>
 
-        <Link href="/startStat"className={style.stats}>
+        <button className={style.stats} onClick={onclickHandler}>
           Stats
-        </Link>
+        </button>
       </main>
 
   );

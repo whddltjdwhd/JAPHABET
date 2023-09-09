@@ -8,7 +8,7 @@ const ShowStats = (props) => {
       {data.map((stat) => {
         return (
           <Stats
-            key={stat._id}
+            key={stat.id}
             counter={stat.counter}
             totalNum={stat.totalNum}
             time={stat.time}
